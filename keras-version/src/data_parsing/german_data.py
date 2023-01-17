@@ -48,6 +48,8 @@ def get_german_data(filepath, wass_setup=False):
             data = pd.concat([data, pd.get_dummies(data[col], prefix=col)], axis=1)
             data.drop(col, axis=1, inplace=True)
         else:
+            # Age, Job, Credit amount, Duration and Data
+            # print(col)
             if col == protected_label:
                 # The standard is to threshold age by 25, but Wass uses 30
                 age_threshold = 30 if wass_setup else 25
