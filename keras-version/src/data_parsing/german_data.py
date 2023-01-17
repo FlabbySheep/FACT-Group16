@@ -29,7 +29,7 @@ def rebalance(x, p, y, dist):
 
 def get_german_data(filepath, wass_setup=False):
     # From: https://www.kaggle.com/twunderbar/german-credit-risk-classification-with-keras
-    data = pd.read_csv('../../data/german_credit_data.csv', index_col=0, sep=',')
+    data = pd.read_csv('./data/german_credit_data.csv', index_col=0, sep=',')
     labels = data.columns
     # protected_label = 'Sex  # Confirmed that in MMD paper, sensitive value is sex.
     # ^ You can't believe everything you read these days. What they meant was age.

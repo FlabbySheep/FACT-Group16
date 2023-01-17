@@ -5,8 +5,7 @@ from classification_models.tfkeras import Classifiers
 from tensorflow import keras
 from tensorflow.keras import layers
 import pandas as pd
-import seaborn as sn
-import cv2
+import seaborn as sn    
 import pickle as pkl
 import random
 from scipy import stats

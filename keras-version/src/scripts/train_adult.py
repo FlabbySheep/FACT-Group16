@@ -18,7 +18,7 @@ demographics = []
 for model_id in range(20):
     np.random.seed(model_id)
     tf.random.set_seed(model_id)
-    train_data, train_labels, train_protected, test_data, test_labels, test_protected = get_adult_data('../../data/adult.csv', '../../data/adult_test.csv', wass_setup=wass_setup)
+    train_data, train_labels, train_protected, test_data, test_labels, test_protected = get_adult_data('./data/adult.data.txt', './data/adult.test.txt', wass_setup=wass_setup)
     input_size = train_data.shape[1]
     protected_shape = train_protected.shape
     protected_size = 1 if len(protected_shape) == 1 else train_protected.shape[1]
