@@ -39,18 +39,21 @@ demographics = []
 for model_id in range(30):
     np.random.seed(model_id)
     tf.random.set_seed(model_id)
+    # (800, ) (800, ) (200, ) (200, )
     train_data, train_labels, train_protected, test_data, test_labels, test_protected = get_german_data('../../data/german_credit_data.csv', wass_setup=wass_setup)
     # 23
     input_size = train_data.shape[1]
     # Create one-hot encodings of data
+    # (800, 2) (800, 2) (200, 2) (200, 2)
     train_labels_one_hot = keras.utils.to_categorical(train_labels, num_classes=2)
     train_protected_one_hot = keras.utils.to_categorical(train_protected)
     test_labels_one_hot = keras.utils.to_categorical(test_labels, num_classes=2)
     test_protected_one_hot = keras.utils.to_categorical(test_protected)
-
+    # 2
     num_protected_classes = train_protected_one_hot.shape[1]
     # what is disentangle?
     if disentangle:
+        # [2, 2]
         output_sizes = [2, num_protected_classes]
         train_outputs_one_hot = [train_labels_one_hot, train_protected_one_hot]
         test_outputs = [test_labels, test_protected]
