@@ -74,7 +74,7 @@ for model_id in range(20):
     print("Disparate impact std", np.std(disparate_impacts))
     print("Demographic mean", np.mean(demographics))
     print("Demographic std", np.std(demographics))
-    proto_model.viz_latent_space(test_data, test_labels, ['Low Income', 'High Income'])
+    # proto_model.viz_latent_space(test_data, test_labels, ['Low Income', 'High Income'])
     # proto_model.viz_latent_space(test_data, test_protected, [i for i in range(protected_size)], proto_indices=1)
     # proto_model.viz_projected_latent_space(test_data, test_labels, [i for i in range(2)], proto_indices=0)
     keras.backend.clear_session()

@@ -44,7 +44,7 @@ class MyTestCase(unittest.TestCase):
         num_prototypes = 2
         num_dims = 3
 
-        my_proto_model = ProtoModel([num_prototypes])
+        my_proto_model = ProtoModel([num_prototypes], latent_dim=num_dims)
         proto_layer = my_proto_model.proto_layers[0]
         protos = keras.backend.eval(proto_layer.prototypes)
         projector = my_proto_model.projectors[0]

@@ -81,7 +81,7 @@ for model_id in range(30):
     disparate_impacts.append(disparate_impact)
     demographics.append(demographic)
     slopes.append(slope)
-    proto_model.viz_latent_space(test_data, test_labels, ['Good Credit', 'Bad Credit'])
+    # proto_model.viz_latent_space(test_data, test_labels, ['Good Credit', 'Bad Credit'])
     # proto_model.viz_latent_space(test_data, test_protected, [i for i in range(2)], proto_indices=1)
     keras.backend.clear_session()
 

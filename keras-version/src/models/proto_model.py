@@ -598,9 +598,9 @@ class ProtoModel:
         if do_fairness_eval:
             # This metric only makes sense for discrete values.
             # self.get_discrim_metric(predictions, ys)
-            # disparate_impact, demographic, extreme_keys = self.get_disparity_metric(predictions, ys, protected_idx=protected_idx)
-            s_diff = 0
-            # s_diff = self.predict_protected(encodings, ys, protected_idx=protected_idx, keys=extreme_keys)
+            disparate_impact, demographic, extreme_keys = self.get_disparity_metric(predictions, ys, protected_idx=protected_idx)
+            # s_diff = 0
+            s_diff = self.predict_protected(encodings, ys, protected_idx=protected_idx, keys=extreme_keys)
         average_cost = -1
         if gold_tree is not None:
             average_cost = self.get_confusion_matrix(ys, numerical_preds, true_tree=gold_tree)
@@ -1140,11 +1140,12 @@ class ProtoModel:
         x_test = relevant_subspace[int(train_frac * num_points):]
         y_test = filtered_ys[protected_idx][int(train_frac * num_points):]
         score = regression_model.score(x_test, y_test)
-        print("logistic s prediction", score)
+        print("logistics prediction", score)
         random_chance = stats.mode(y_test)[1] / (num_points - int(train_frac * num_points))
         print("Random baseline", random_chance)
 
-        return score - random_chance
+        # return score - random_chance
+        return score
 
     def eval_proto_diffs_parity(self, concept_idx=0):
         best_align = self.eval_proto_diffs(concept_idx=concept_idx)
