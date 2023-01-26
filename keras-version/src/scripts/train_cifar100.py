@@ -54,5 +54,5 @@ for model_id in range(0, 10):
     # proto_model.viz_projected_latent_space(x_test, y_test_fine, fine_labels, proto_indices=0)
     # proto_model.viz_latent_space(x_test, y_test_fine, fine_labels)
     mean_diffs, mean_sames = proto_model.eval_proto_diffs_parity(concept_idx=1)
-    write_to_file([y_accs, alignments, mean_diffs, mean_sames, [1] if tree_matches else [0], [edit_dist], [average_cost]], filename='../saved_models/cifar100_csn_init_cost_' + str(model_id) + '.csv')
+    write_to_file([y_accs, alignments, mean_diffs, mean_sames, [1] if tree_matches else [0], [edit_dist], [average_cost]], filename='./saved_models/cifar100_csn_init_cost_' + str(model_id) + '.csv')
     tf.keras.backend.clear_session()
