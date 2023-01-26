@@ -79,6 +79,6 @@ for model_id in range(0, 1):
     # proto_model.viz_latent_space(x_test, y_test_fine, fine_labels)
     mean_diffs, mean_sames = proto_model.eval_proto_diffs_parity(concept_idx=1)
     write_to_file([y_accs, alignments, mean_diffs, mean_sames, [1] if matched_trees else [0], [edit_dist], [average_cost]],
-                  filename='../saved_models/hierarchy_cifar100_cost_' + str(model_id) + '.csv')
+                  filename='./saved_models/hierarchy_cifar100_cost_' + str(model_id) + '.csv')
 
     tf.keras.backend.clear_session()

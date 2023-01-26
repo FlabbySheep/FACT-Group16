@@ -36,7 +36,7 @@ slopes = []
 disentangle = True
 disparate_impacts = []
 demographics = []
-for model_id in range(30):
+for model_id in range(30, 60):
     np.random.seed(model_id)
     tf.random.set_seed(model_id)
     # (800, ) (800, ) (200, ) (200, )

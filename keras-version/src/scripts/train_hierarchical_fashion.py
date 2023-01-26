@@ -107,7 +107,7 @@ for model_id in range(10):
 
     # write_to_file([accuracies, alignments, mean_diffs, mean_sames, prob_updates[1], prob_updates[0]], filename='../saved_models/hierarchy_fashion_protos_' + str(model_id) + '.csv')
     write_to_file([y_accs, alignments, mean_diffs, mean_sames, [1] if tree_matches else [0], [edit_dist], [average_cost]],
-                  filename='../saved_models/hierarchy_fashion_cost_' + str(model_id) + '.csv')
+                  filename='./saved_models/hierarchy_fashion_cost_' + str(model_id) + '.csv')
 
     tf.keras.backend.clear_session()
 

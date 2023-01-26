@@ -44,10 +44,10 @@ for model_id in range(20):
     # disentangle_weights = [[0, 1000], [0, 0]]
     # kl_losses = [.5, .5]
     disentangle_weights = [[0, 1000], [0, 0]]
-    kl_losses = [.05, .05]
+    # kl_losses = [.05, .05]
     # Seems to work best with these just at 0.
     # disentangle_weights = [[0, 0], [0, 0]]
-    # kl_losses = [0, 0]
+    kl_losses = [0, 0]
     num_epochs = 20  # Was 20
     if wass_setup:
         classification_weight = [3.0, 1.0]

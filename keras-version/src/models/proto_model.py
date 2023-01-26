@@ -231,7 +231,8 @@ class ProtoModel:
     def get_decoding(self, feature_enc):
         return self.decoder(feature_enc)
 
-    def build_mnist_conv_dec(self, feature_enc, dec_input):
+    def build_mnist_conv_dec(self, feature_enc=None, dec_input=None):
+        dec_input = keras.Input(shape=(self.latent_dim,), name='dec_input')
         d1 = layers.Reshape((2, 2, int(self.latent_dim / 4),))
         d2 = layers.Conv2DTranspose(32, (3, 3), strides=(2, 2), padding='same', output_padding=(1, 1),
                                     activation='relu')
@@ -249,7 +250,8 @@ class ProtoModel:
         dec_output = d6(dec_output)
         self.decoder = keras.Model(inputs=dec_input, outputs=dec_output, name='dec_model')
 
-    def build_cifar_conv_dec(self, feature_enc, dec_input):
+    def build_cifar_conv_dec(self, feature_enc=None, dec_input=None):
+        dec_input = keras.Input(shape=(self.latent_dim,), name='dec_input')
         d1 = layers.Reshape((2, 2, int(self.latent_dim / 4),))
         d2 = layers.Conv2DTranspose(32, (3, 3), strides=(2, 2), padding='same', output_padding=(1, 1),
                                     activation='relu')
@@ -260,12 +262,13 @@ class ProtoModel:
         d5 = layers.Conv2DTranspose(3, (3, 3), strides=(2, 2), output_padding=(1, 1), padding='same',
                                     activation='sigmoid')
         d6 = layers.Reshape((self.input_size,), name='finalreshape')
-        d = d1(feature_enc)
-        d = d2(d)
-        d = d3(d)
-        d = d4(d)
-        d = d5(d)
-        recons = d6(d)
+        # d = d1(feature_enc)
+        # d = d2(d)
+        # d = d3(d)
+        # d = d4(d)
+        # d = d5(d)
+        # recons = d6(d)
+        
         dec_output = d1(dec_input)
         dec_output = d1(dec_output)
         dec_output = d2(dec_output)
@@ -275,7 +278,7 @@ class ProtoModel:
         dec_output = d6(dec_output)
         self.decoder = keras.Model(inputs=dec_input, outputs=dec_output, name='dec_model')
         self.decoder.summary()
-        return recons
+        # return recons
 
     def build_overall_network(self):
         feature_enc = self.encoder.outputs[0]

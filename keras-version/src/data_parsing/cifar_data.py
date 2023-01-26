@@ -144,7 +144,6 @@ def get_cifar10_data():
     class_names = ['airplane', 'automobile', 'bird', 'cat''deer', 'dog', 'frog', 'horse', 'ship', 'truck']
     return x_train, y_train, y_train_one_hot, x_test, y_test, y_test_one_hot, class_names
 
-
 def get_cifar100_data():
     (x_train, y_train_fine), (x_test, y_test_fine) = cifar100.load_data(label_mode='fine')
     (_, y_train_coarse), (_, y_test_coarse) = cifar100.load_data(label_mode='coarse')
@@ -297,7 +296,6 @@ def get_cifar100_data():
     coarse_names = list(mapping.keys())
     return x_train, y_train_fine, y_train_coarse, y_train_fine_one_hot, y_train_coarse_one_hot, x_test, y_test_fine, y_test_coarse, y_test_fine_one_hot, y_test_coarse_one_hot, class_names, coarse_names
 
-
 # TODO: rename
 def get_cifar100_mapping():
     fine_names = [
@@ -438,7 +436,6 @@ def get_cifar100_mapping():
             coarse_to_fine[coarse_label].append(fine_label)
     return fine_to_coarse, intra_group_labels, coarse_to_fine
 
-
 def get_cifar100_tree():
     mapping = {
         'aquatic mammals': ['beaver', 'dolphin', 'otter', 'seal', 'whale'],
@@ -472,7 +469,6 @@ def get_cifar100_tree():
     for node in nodes:
         tree.add_node(node, name=node)
     return tree
-
 
 def get_deep_data():
     (x_train, y_train0), (x_test, y_test0) = cifar100.load_data(label_mode='fine')
